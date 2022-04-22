@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Map from './components/Map';
-import { useState, useEffect } from 'react';
 import Loader from './components/Loader';
 import Header from './components/Header';
 
@@ -16,7 +15,7 @@ function App() {
       );
       const { events } = await res.json();
 
-      setEventData(eventData);
+      setEventData(events);
       setLoading(false);
     };
 
@@ -26,7 +25,7 @@ function App() {
   return (
     <div>
       <Header />
-      {!loading ? <Map eventData={{ eventData }} /> : <Loader />}
+      {!loading ? <Map eventData={eventData} /> : <Loader />}
     </div>
   );
 }

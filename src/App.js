@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from './components/Map';
 import { useState, useEffect } from 'react';
+import Loader from './components/Loader';
 
 function App() {
   const [eventData, setEventData] = useState([]);
@@ -21,9 +22,7 @@ function App() {
     fetchEvents();
   }, []);
 
-  return (
-    <div>{!loading ? <Map eventData={{ eventData }} /> : <h1>Loading</h1>}</div>
-  );
+  return <div>{!loading ? <Map eventData={{ eventData }} /> : <Loader />}</div>;
 }
 
 export default App;
